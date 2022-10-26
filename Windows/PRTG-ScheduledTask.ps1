@@ -15,11 +15,6 @@
     VERSION: 1.1
     KEYWORDS: PRTG, Windows, Schedule Task
 	
-	ChangeLog
-		2022-10-26, Roger Carlén -	Modified source-URL.
-									Function formatting.
-									
-   
     .Link
     http://mycloudrevolution.com/
 
@@ -29,11 +24,13 @@
  #Requires PS -Version 3.0  
  #>
 [cmdletbinding()]
-param(
+param
+(
     [Parameter(Position=0, Mandatory=$false)]
-    	[string]$ComputerName = $env:COMPUTERNAME,
+	[string]$ComputerName = $env:COMPUTERNAME,
+	
 	[Parameter(Position=1, Mandatory=$true)]
-        [string]$TaskName
+	[string]$TaskName
 )
 
 #region: Definitions
@@ -45,8 +42,9 @@ $Date = Get-Date -Format G
 function Get-AllTaskSubFolders
 {
     [cmdletbinding()]
-    param (
-        <#
+    param
+	(
+		<#
 			Set to use $Schedule as default parameter so it automatically list all files
 			For current schedule object if it exists.
 		#>
